@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="pageContainer">
+    <div class="tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Contraseña</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Erick</td>
+                    <td>Ville</td>
+                    <td>23</td>
+                    <td>123456</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h1>Crear Usuario</h1>
+        <form id="createUserForm">
+            <div>
+                <label for="userName">Nombre de Usuario</label>
+                <input id="userName" />
+            </div>
+            <div>
+                <label for="surName">Apellido</label>
+                <input id="surName" name="surName" />
+            </div>
+            <div>
+                <label for="agre">Edad</label>
+                <input id="agre" name="agre"/>
+            </div>
+            <div>
+                <label for="password">password</label>
+                <input id="password" name="password" type="password"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
+
+<style>
+    tr > * {
+        padding: 10px;
+        border: 1px solid red;
+        text-align: center;
+    }
+</style>
