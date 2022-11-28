@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP</title>
 </head>
 <body>
 <div class="pageContainer">
@@ -28,24 +28,27 @@
             </tbody>
         </table>
     </div>
-    <div>
+    <div class="createUserContainer">
         <h1>Crear Usuario</h1>
         <form id="createUserForm">
             <div>
-                <label for="userName">Nombre de Usuario</label>
-                <input id="userName" />
+                <label for="Name">Nombre de Usuario</label>
+                <input id="Name" />
             </div>
             <div>
                 <label for="surName">Apellido</label>
                 <input id="surName" name="surName" />
             </div>
             <div>
-                <label for="agre">Edad</label>
-                <input id="agre" name="agre"/>
+                <label for="age">Edad</label>
+                <input id="age" name="age"/>
             </div>
             <div>
                 <label for="password">password</label>
                 <input id="password" name="password" type="password"/>
+            </div>
+            <div class="buttonContainer">
+                <button type="submit">Crear Usuario</button>
             </div>
         </form>
     </div>
@@ -54,10 +57,60 @@
 </html>
 
 
+<!-- ESTILOS PARA LA WEB -->
 <style>
+    .pageContainer {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #createUserForm * {
+        margin-top: 10px;
+    }
+
     tr > * {
         padding: 10px;
         border: 1px solid red;
         text-align: center;
     }
+
+    #createUserForm {
+        text-align: right;
+    }
+
+    .buttonContainer {
+        text-align: center;
+    }
 </style>
+
+<script>
+    const form = document.getElementById("createUserForm");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const userData = eventToUserData(event);
+        const userDataJson = JSON.stringify(userData);
+        fetch("http://127.0.0.1:5500/users",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: userDataJson,
+        });
+    });
+
+    function eventToUserData(event) {
+        const elements = event.target.elements;
+        const name = event.target.elements.Name.value;
+        const surname = event.target.elements.surName.value;
+        const age = elements.age.value;
+        const password = elements.password.value;
+
+        return {
+            name: name,
+            surname: surname,
+            age: age,
+            password: password,
+        }
+    }
+</script>
