@@ -90,7 +90,7 @@
         event.preventDefault();
         const userData = eventToUserData(event);
         const userDataJson = JSON.stringify(userData);
-        fetch("http://127.0.0.1:5500/users",{
+        fetch("http://localhost:61644/users",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
