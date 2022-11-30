@@ -12,10 +12,21 @@ app.get('/', (req, res) => {
 });
 
 app.post("/users", (req, res) => {
-    console.log(req.body);
+    const userData = req.body;
+    saveUserInDataBase(
+      userData.name,
+      userData.surName,
+      userData.age,
+      userData.password
+    );
     res.send('Esto es el método post');
 });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+function saveUserInDataBase(name, surName, age, password) {
+  //Guarda en la BASE DE DATOS LOS DATOS
+  debugger;
+}
