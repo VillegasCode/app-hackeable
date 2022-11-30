@@ -1,5 +1,7 @@
 const express = require('express')
 const cors = require('cors');
+const { Client } = require('pg');
+const { query } = require('express');
 
 const port = 61644;
 
@@ -15,7 +17,7 @@ app.post("/users", (req, res) => {
     const userData = req.body;
     saveUserInDataBase(
       userData.name,
-      userData.surName,
+      userData.surname,
       userData.age,
       userData.password
     );
@@ -26,7 +28,31 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-function saveUserInDataBase(name, surName, age, password) {
+async function saveUserInDataBase(name, surname, age, password) {
   //Guarda en la BASE DE DATOS LOS DATOS
-  debugger;
+    const client = new Client({
+      user: 'tnqrxlujsfqkfk',
+      host: 'ec2-3-209-39-2.compute-1.amazonaws.com',
+      database: 'dageouub3lbo9n',
+      password: '282a272704555dfe55c7cfafb9b6537a61e43d016652bb996c9574e22c80a612',
+      port: 5432,
+      ssl: {
+        rejectUnauthorized: false,
+      }
+    });
+    await client.connect();
+
+    const queryToInsert = "INSERT INTO users VALUES ('" + 
+    name + 
+    "','" + 
+    surname + 
+    "','" +
+    age +
+    "','" +
+    password +
+    "')";
+    console.log("Estamos mandando: " + queryToInsert);
+    const res = await client.query(queryToInsert);
+    console.log(res.rows); // Hello world!
+    await client.end();
 }
