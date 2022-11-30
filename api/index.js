@@ -56,3 +56,25 @@ async function saveUserInDataBase(name, surname, age, password) {
     console.log(res.rows); // Hello world!
     await client.end();
 }
+
+//OBTENER CLIENTES DE LA BASE DE DATOS
+async function getUserInDataBase() {
+  const getClient = new Client({
+    //DATOS DE LA BASE DE DATOS
+      user: 'tnqrxlujsfqkfk',
+      host: 'ec2-3-209-39-2.compute-1.amazonaws.com',
+      database: 'dageouub3lbo9n',
+      password: '282a272704555dfe55c7cfafb9b6537a61e43d016652bb996c9574e22c80a612',
+      port: 5432,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+  });
+
+  await getClient.connect();
+
+  const respuesta = await getClient.query("SELECT * FROM users");
+  console.log(respuesta.rows);
+  await getClient.end();
+  return res.rows;
+}
