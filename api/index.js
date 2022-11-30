@@ -9,10 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
 app.post("/users", (req, res) => {
     const userData = req.body;
     saveUserInDataBase(
@@ -26,7 +22,7 @@ app.post("/users", (req, res) => {
 
 //APP PARA OBTENER USUARIOS DE LA BASE DE DATOS
 app.get("/users", async(req, respuesta) => {
-  const users =await getUserInDataBase();
+  const users = await getUserInDataBase();
   respuesta.send(users);
 })
 
@@ -82,5 +78,5 @@ async function getUserInDataBase() {
   const respuesta = await getClient.query("SELECT * FROM users");
   console.log(respuesta.rows);
   await getClient.end();
-  return res.rows;
+  return respuesta.rows;
 }
