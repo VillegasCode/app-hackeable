@@ -24,6 +24,12 @@ app.post("/users", (req, res) => {
     res.send('Esto es el método post');
 });
 
+//APP PARA OBTENER USUARIOS DE LA BASE DE DATOS
+app.get("/users", async(req, respuesta) => {
+  const users =await getUserInDataBase();
+  respuesta.send(users);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
