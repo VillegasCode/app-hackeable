@@ -33,10 +33,10 @@ app.listen(port, () => {
 async function saveUserInDataBase(name, surname, age, password) {
   //Guarda en la BASE DE DATOS LOS DATOS
     const client = new Client({
-      user: 'tnqrxlujsfqkfk',
-      host: 'ec2-3-209-39-2.compute-1.amazonaws.com',
-      database: 'dageouub3lbo9n',
-      password: '282a272704555dfe55c7cfafb9b6537a61e43d016652bb996c9574e22c80a612',
+      user: 'cogvzfetknpzap',
+      host: 'ec2-54-167-186-198.compute-1.amazonaws.com',
+      database: 'd88blqnai3na78',
+      password: '401b190dca0792b12fc935b7dcd37e17e7b7877c8d975f4dc3fc2d92d04d37bd',
       port: 5432,
       ssl: {
         rejectUnauthorized: false,
@@ -55,7 +55,7 @@ async function saveUserInDataBase(name, surname, age, password) {
     "')";
     console.log("Estamos mandando: " + queryToInsert);
     const res = await client.query(queryToInsert);
-    console.log(res.rows); // Hello world!
+    console.log("AQUÍ: " + res.rows);
     await client.end();
 }
 
