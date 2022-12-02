@@ -63,7 +63,7 @@ async function saveUserInDataBase(name, surname, age, password) {
 async function getUserInDataBase() {
   const getClient = new Client({
     //DATOS DE LA BASE DE DATOS
-      user: 'tnqrxlujsfqkfk',
+      user: 'ACTUALIZAR USER tnqrxlujsfqkfk',
       host: 'ec2-3-209-39-2.compute-1.amazonaws.com',
       database: 'dageouub3lbo9n',
       password: '282a272704555dfe55c7cfafb9b6537a61e43d016652bb996c9574e22c80a612',
