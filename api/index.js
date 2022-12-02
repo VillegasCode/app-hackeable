@@ -63,10 +63,11 @@ async function saveUserInDataBase(name, surname, age, password) {
 async function getUserInDataBase() {
   const getClient = new Client({
     //DATOS DE LA BASE DE DATOS
-      user: 'ACTUALIZAR USER tnqrxlujsfqkfk',
-      host: 'ec2-3-209-39-2.compute-1.amazonaws.com',
-      database: 'dageouub3lbo9n',
-      password: '282a272704555dfe55c7cfafb9b6537a61e43d016652bb996c9574e22c80a612',
+    //https://data.heroku.com/datastores/1ac7b247-0a04-40ad-b649-0073e4537290#administration
+      user: 'cogvzfetknpzap',
+      host: 'ec2-54-167-186-198.compute-1.amazonaws.com',
+      database: 'd88blqnai3na78',
+      password: '401b190dca0792b12fc935b7dcd37e17e7b7877c8d975f4dc3fc2d92d04d37bd',
       port: 5432,
       ssl: {
         rejectUnauthorized: false,
