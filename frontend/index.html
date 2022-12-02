@@ -112,7 +112,7 @@
 
 //ACTUALIZA LA TABLA
 async function refreshTable(){
-    document.getElementById("userDataTable").innerHTML = "";
+    document.getElementById("userDataTableTBody").innerHTML = "";
     const users = await getUserFromApi();
     drawUserTable(users);
 }
@@ -126,7 +126,7 @@ async function getUserFromApi() {
 
 //DIBUJA USUARIOS EN LA TABLA
 async function drawUserTable(users) {
-    document.getElementById("userDataTable").innerHTML = "";
+    document.getElementById("userDataTableTBody").innerHTML = "";
         users.forEach((user) => {
             addUserToTable(user);
         });
