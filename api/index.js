@@ -55,7 +55,7 @@ async function saveUserInDataBase(name, surname, age, password) {
     "')";
     console.log("Estamos mandando: " + queryToInsert);
     const res = await client.query(queryToInsert);
-    console.log("AQUÍ: " + res.rows);
+    console.log(res.rows);
     await client.end();
 }
 
