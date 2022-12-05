@@ -90,9 +90,9 @@
             },
             body: userDataJson,
         }).then((result)=>{
-            refreshTable();
             document.getElementById("createUserForm").reset();
             document.getElementById("Name").focus();
+            refreshTable();
         });
     });
 
