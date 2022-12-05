@@ -92,6 +92,7 @@
         }).then((result)=>{
             refreshTable();
             document.getElementById("createUserForm").reset();
+            document.getElementById("Name").focus();
         });
     });
 
@@ -151,9 +152,9 @@ async function drawUserTable(users) {
             cell2.innerHTML = user.surname;
             cell3.innerHTML = user.age;
             cell4.innerHTML = user.password;
+
     }
 
-    document.addEventListener("DOMcontentLoaded", ()=> {
-        refreshTable();
-    });
+    //Para cargar la tabla "users" de la basa de datos apenas carga la página
+    document.addEventListener("DOMcontentLoaded", refreshTable());
 </script>
